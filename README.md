@@ -7,8 +7,8 @@ You can use it for tinkering and testing :-)
 
 A typical micro-services architecture will request other services based on responsibility, an example could be:
 ```
-request  -> [Gatekeeper] -> [Ordering service]  (Process order)
-            [          ] -> [Messaging service] (Send confirmation e-mail)
+request  -> [Gatekeeper] -> [Order service]     (Process order)
+            [          ] -> [Message service]   (Send confirmation e-mail)
             [          ] -> [Content service]   (Update listing)
 response <- [          ]
 ```
@@ -64,10 +64,5 @@ To stress the *services* you can pick something as [wrk](https://github.com/wg/w
 wrk -d 60s http://localhost:8080/?hops=0
 Running 1m test @ http://localhost:8080/?hops=0
   2 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.75ms    6.96ms 200.45ms   97.42%
-    Req/Sec     5.87k     1.13k    8.86k    73.04%
-  700545 requests in 1.00m, 80.17MB read
-Requests/sec:  11664.06
-Transfer/sec:      1.33MB
+  ...
 ```
